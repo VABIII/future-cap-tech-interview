@@ -66,8 +66,10 @@ const TEST_CASE_3 = "7,1,5,3,6,4"
 const TEST_CASE_4 = "7,6,4,3,1"
 
 const maximizeProfits = prices => {
-    const priceArray = prices.split(',')
-    let maxProfit = 0
+    const priceArray = prices.split(',');
+    let maxProfit = 0;
+    let buyDate = '';
+    let sellDate = '';
 
     for (let i = 0; i < priceArray.length; i++) {
         let currentDay = priceArray[i]
@@ -75,15 +77,19 @@ const maximizeProfits = prices => {
         for (let j = i + 1; j < priceArray.length; j++) {
             let nextDay = priceArray[j];
             if(currentDay < nextDay) profit = nextDay - currentDay
-            if(profit > maxProfit) maxProfit = profit
+            if(profit > maxProfit) {
+                maxProfit = profit;
+                buyDate = i + 1;
+                sellDate = j + 1;
+            }
 
         }
     }
 
-    return maxProfit;
+    return maxProfit <= 0 ?
+        `Do nothing. Maximum profit would be zero.` :
+        `To achieve a maximum profit of ${maxProfit}, then you should buy on day ${buyDate} and sell on ${sellDate}`
 }
-
-
 
 
 
