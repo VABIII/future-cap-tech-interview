@@ -1,4 +1,4 @@
-const  DATA = [
+const DATA = [
     {
         "ticker": "BABA",
         "name": "Alibaba Group Holding Ltd - ADR",
@@ -124,16 +124,12 @@ const maximizeProfits = prices => {
         }
     }
 
-    /** If the maxProfit is zero, we return instructions to do nothing, otherwise we return which day to buy
-        which day to sell to realize the maximum profit possible **/
 
-    return maxProfit <= 0 ?
-        `Do nothing. Maximum profit would be zero.` :
-        `To achieve a maximum profit of ${maxProfit}, then you should buy on day ${buyDate} and sell on ${sellDate}`
+    return maxProfit <= 0 ? 0 : maxProfit;
 }
 
 
-
+console.log(maximizeProfits(TEST_CASE_3))
 
 
 
