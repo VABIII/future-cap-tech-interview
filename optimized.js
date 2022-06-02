@@ -89,7 +89,6 @@ const maximizeProfits = prices => {
 
 }
 
-console.log(maximizeProfits(TEST_CASE_3))
 
 
 
